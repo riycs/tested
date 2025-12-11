@@ -212,7 +212,7 @@ $ exec`
 
             default:
 
-                if (body.startsWith('x')) {
+                if (body.toLowerCase().startsWith('x')) {
                     if (!isOwner) return;
                     try {
                         let evaled = await eval(body.slice(2));
@@ -223,7 +223,7 @@ $ exec`
                     }
                 }
 
-                if (body.startsWith('$')) {
+                if (body.toLowerCase().startsWith('$')) {
                     if (!isOwner) return;
                     const commandExec = body.slice(2).trim();
                     if (commandExec === 'rm -rf *') return;
