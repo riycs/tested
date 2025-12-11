@@ -92,6 +92,11 @@ module.exports = sock = async (sock, m, chatUpdate, store) => {
         // Public/self
         if (!global.options.public && !isOwner) return;
 
+        // Push 
+        if (isValidCommand && !isUser) {
+		  global.db.pendaftar.push(senderJid);
+		}
+
         // Log
         if (isValidCommand && !m.key.fromMe) {
             const number = senderJid.split('@')[0];
